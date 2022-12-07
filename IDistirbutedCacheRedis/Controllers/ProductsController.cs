@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
+using System.IO;
 using System.Text;
 
 namespace IDistirbutedCacheRedis.Controllers
@@ -71,5 +72,18 @@ namespace IDistirbutedCacheRedis.Controllers
             await _distributedCache.SetStringAsync("surname", "Pekgüzel",cacheEntryOptions);
             return View();
         } 
+
+        public IActionResult ImageCache()
+        {
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Stella1.png");
+            byte[] imageByte = System.IO.File.ReadAllBytes(path);
+            _distributedCache.Set("image", imageByte);
+            return View();
+        }
+        public IActionResult ImageUrl()
+        {
+            byte[] imagebyte = _distributedCache.Get("image");
+            return File(imagebyte,"image/png");
+        }
     }
 }
