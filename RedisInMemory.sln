@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InMemory", "InMemory\InMemo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDistirbutedCacheRedis", "IDistirbutedCacheRedis\IDistirbutedCacheRedis.csproj", "{902CC97B-28E9-4C7C-956E-CE56864CDBAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExhange.RedisAPI.Web", "StackExhange.RedisAPI.Client\StackExhange.RedisAPI.Web.csproj", "{7941E063-2629-4A3A-BED7-C7CB84576D80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackExhange.RedisAPI.Web", "StackExhange.RedisAPI.Client\StackExhange.RedisAPI.Web.csproj", "{7941E063-2629-4A3A-BED7-C7CB84576D80}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisSampleProject.API", "RedisSampleProject.API\RedisSampleProject.API.csproj", "{E25B54D3-B963-478B-9D40-8B8DB444E98A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisSampleProject.RedisCache", "RedisSampleProject.RedisCache\RedisSampleProject.RedisCache.csproj", "{F3BCC05F-6256-4E32-8E6C-27CA9875FDF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{7941E063-2629-4A3A-BED7-C7CB84576D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7941E063-2629-4A3A-BED7-C7CB84576D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7941E063-2629-4A3A-BED7-C7CB84576D80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E25B54D3-B963-478B-9D40-8B8DB444E98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E25B54D3-B963-478B-9D40-8B8DB444E98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E25B54D3-B963-478B-9D40-8B8DB444E98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E25B54D3-B963-478B-9D40-8B8DB444E98A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3BCC05F-6256-4E32-8E6C-27CA9875FDF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3BCC05F-6256-4E32-8E6C-27CA9875FDF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3BCC05F-6256-4E32-8E6C-27CA9875FDF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3BCC05F-6256-4E32-8E6C-27CA9875FDF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
