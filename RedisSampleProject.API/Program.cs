@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RedisSampleProject.API.Models;
 using RedisSampleProject.API.Repository;
+using RedisSampleProject.API.Services;
 using RedisSampleProject.RedisCache;
 using StackExchange.Redis;
 
@@ -12,6 +13,16 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepository>(serviceProvider =>
+{
+    AppDbContext appDbContext = serviceProvider.GetRequiredService<AppDbContext>();
+    ProductRepository productRepositroy = new ProductRepository(appDbContext);
+    RedisService redisService = serviceProvider.GetRequiredService<RedisService>();
+
+    return new ProductRepositoryWithCacheDecorater(productRepositroy, redisService);
+});
+
 builder.Services.AddDbContext<AppDbContext>(options => {
     options.UseInMemoryDatabase("mydatabase");
 
@@ -26,7 +37,7 @@ builder.Services.AddSingleton<IDatabase>(serviceprovider =>
     RedisService redisService = serviceprovider.GetRequiredService<RedisService>();
     return redisService.Getdb(0);
 });
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
 var app = builder.Build();
 using (IServiceScope scope = app.Services.CreateScope())
 {
